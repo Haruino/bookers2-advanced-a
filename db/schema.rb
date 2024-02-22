@@ -65,7 +65,9 @@ ActiveRecord::Schema.define(version: 2024_02_20_080228) do
 
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
+    # 必ずログインしているユーザー = current_userとなる
     t.integer "followed_id"
+    # 今からフォローするユーザー
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
