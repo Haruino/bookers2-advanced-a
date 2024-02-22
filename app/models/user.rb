@@ -30,6 +30,7 @@ class User < ApplicationRecord
     active_relationships.create(followed_id: user.id)
   end
   # active_relationshipsを経由して指定したユーザーをフォロー
+  # relationshipsコントローラで取得した、User.find(params[:user_id]
   def unfollow(user)
     active_relationships.find_by(followed_id: user.id).destroy
   end
