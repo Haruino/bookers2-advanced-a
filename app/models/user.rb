@@ -40,6 +40,7 @@ class User < ApplicationRecord
      followings.include?(user)
   end
   # 指定したユーザーをフォローしているかどうかを判定
+  # followingsで持ってきたuserカラム
 
   validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
   validates :introduction, length: { maximum: 50 }

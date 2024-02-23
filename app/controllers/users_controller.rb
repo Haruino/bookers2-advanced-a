@@ -23,21 +23,6 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-  
-  # ここからフォロー機能
-  def followings
-    user = User.find(params[:id])
-    @users = user.followings
-    # active_relationshipsという名称で参照したrelationshipsテーブル経由で、
-    # userによってフォローされているユーザー一覧であるfollowedカラムを返し、@usersに格納
-  end
-
-  def followers
-    user = User.find(params[:id])
-    @users = user.followers
-    # passive_relationshipsという名称で参照したrelationshipsテーブル経由で、
-    # userをフォローしているユーザー一覧であるfollowerカラムを返し、@usersに格納
-  end
 
 
   private
