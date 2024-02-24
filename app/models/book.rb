@@ -11,4 +11,21 @@ class Book < ApplicationRecord
     # いいねを押したfavoritesテーブルのuser_idと引数である関連付けられたuserテーブルの
     # idが存在している場合はいいねされている、存在していない場合はいいねされていない
   end
+  
+  # 検索方法分岐
+  def self.looks(search, word)
+    if search == "perfect_match"
+      @book = Book.where("title LIKE?","#{word}")
+    elsif search == "forward_match"
+      @book = Book.where("title LIKE?","#{word}%")
+    elsif search == "backward_match"
+      @book = Book.where("title LIKE?","%#{word}")
+    elsif search == "partial_match"
+      @book = Book.where("title LIKE?","%#{word}%")
+    else
+      @book = Book.all
+    end
+    
+    # titleは検索対象であるbooksテーブル内のカラム名
+  end
 end

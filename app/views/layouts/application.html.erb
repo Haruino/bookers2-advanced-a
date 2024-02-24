@@ -12,7 +12,10 @@
   <body>
     <%= render 'layouts/header' %>
       <main>
-        <p id="notice"><%= notice %></p>
+        <p id="notice"><%= flash[:notice] %></p>
+        <div class="d-flex justify-content-center mb-2">
+          <%= render "searches/search" %>
+        </div>
         <%= yield %>
       </main>
     <%= render 'layouts/footer' %>
