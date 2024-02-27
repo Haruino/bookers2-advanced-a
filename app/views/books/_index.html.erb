@@ -21,19 +21,11 @@
           <% end %>
         </td>
         <td><%= book.body %></td>
-          <% if book.favorited_by?(current_user) %>
-            <td>
-              <%= link_to book_favorite_path(book), method: :delete do %>
-                <i class="fa-solid fa-heart"></i><%= book.favorites.count %>
-              <% end %>
-            </td>
-          <% else %>
-            <td>
-              <%= link_to book_favorite_path(book), method: :post do %>
-                <i class="fa-solid fa-heart"></i><%= book.favorites.count %>
-              <% end %>
-            </td>
-          <% end %>
+        <td id="favorite_btn_<%= book.id %>" >
+          <!--jQueryの動作のためID追加-->
+          <!--book.id は各本を特定するため、識別子を指定することでお気に入りボタンが対象の本に関連付けられる-->
+          <%= render "favorites/favorite-btn", book: book %>
+        </td>
         <td>コメント数: <%= book.book_comments.count %></td>
       </tr>
     <% end %>
