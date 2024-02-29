@@ -1,0 +1,2 @@
+$("#favorite_btn_<%= @favorite.book.id %>").html("<%= j(render 'favorites/favorite-btn', book: @favorite.book) %>");
+<!--インスタンス変数はcreateアクションで定義したものを使える-->
