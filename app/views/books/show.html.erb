@@ -5,6 +5,8 @@
       <%= render 'users/info', user: @book.user %>
       <h2 class="mt-3">New book</h2>
       <%= render 'form', book: Book.new %>
+      <!--showアクションで@bookインスタンス(ここでは、パーシャルなのでbook)に固有のidが既に入っているので、-->
+      <!--formパーシャルのtitleとbodyにはその固有のidにすでに格納されているものが入っているので、新しいからのインスタンスを用意してあげる-->
     </div>
     <div class='col-md-8 offset-md-1'>
   		<h2>Book detail</h2>
